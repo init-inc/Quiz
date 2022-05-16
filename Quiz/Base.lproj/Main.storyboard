@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="usM-hx-wGS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="KHD-aL-IiJ">
+            <objects>
+                <navigationController id="usM-hx-wGS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ngz-hG-4lN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8pA-cq-HFK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kD6-a4-aRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-654" y="125"/>
+        </scene>
         <!--最初の画面-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -47,11 +64,12 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zbi-Qg-Rux"/>
+                                    <segue destination="pg2-TN-rAe" kind="show" id="JTS-fB-cHw"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Base"/>
                         <constraints>
                             <constraint firstItem="HcH-cJ-9yh" firstAttribute="top" secondItem="C7B-r9-UU2" secondAttribute="bottom" constant="8" id="042-se-G6X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HcH-cJ-9yh" secondAttribute="trailing" constant="32" id="5eZ-3s-sRL"/>
@@ -62,8 +80,10 @@
                             <constraint firstItem="q4I-rf-84x" firstAttribute="top" secondItem="C7B-r9-UU2" secondAttribute="bottom" constant="8" id="dnZ-Ym-1Vq"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6iM-4H-BXS"/>
                     <connections>
                         <outlet property="label" destination="C7B-r9-UU2" id="a1w-ht-vL0"/>
+                        <outlet property="nameTextField" destination="q4I-rf-84x" id="FZS-h8-oCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,7 +93,7 @@
         <!--クイズ画面-->
         <scene sceneID="BcA-TE-SY7">
             <objects>
-                <viewController title="クイズ画面" id="pg2-TN-rAe" sceneMemberID="viewController">
+                <viewController title="クイズ画面" id="pg2-TN-rAe" customClass="QuizViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gp8-45-kgJ" userLabel="親View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,14 +101,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgm-Fd-Puf" userLabel="子View">
                                 <rect key="frame" x="67" y="308" width="280" height="280"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cls-PQ-Rir" userLabel="1st孫Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right icon" translatesAutoresizingMaskIntoConstraints="NO" id="cls-PQ-Rir" userLabel="1st孫Image View">
                                         <rect key="frame" x="120" y="8" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Yca-Fm-3yF"/>
                                             <constraint firstAttribute="height" constant="40" id="ddM-d8-2dg"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0VK-Um-FfX" userLabel="2nd孫Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neko" translatesAutoresizingMaskIntoConstraints="NO" id="0VK-Um-FfX" userLabel="2nd孫Image View">
                                         <rect key="frame" x="85" y="56" width="110" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="44t-8h-s2z"/>
@@ -135,6 +155,10 @@
                             <constraint firstItem="vTD-1v-riq" firstAttribute="trailing" secondItem="E2D-5k-9mp" secondAttribute="trailing" constant="16" id="ndx-yZ-GwS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8F6-Kz-YbZ"/>
+                    <connections>
+                        <outlet property="label" destination="E2D-5k-9mp" id="bKc-VT-exT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUw-PF-atb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,6 +222,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="neko" width="1196" height="1196"/>
+        <image name="right icon" width="128" height="128"/>
+        <namedColor name="Base">
+            <color red="0.64313725490196083" green="0.83529411764705885" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
