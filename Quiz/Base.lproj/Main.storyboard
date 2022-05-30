@@ -163,6 +163,7 @@
                     <navigationItem key="navigationItem" id="8F6-Kz-YbZ"/>
                     <connections>
                         <outlet property="label" destination="E2D-5k-9mp" id="bKc-VT-exT"/>
+                        <outlet property="quizCard" destination="Fgm-Fd-Puf" id="Q9J-GP-TIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUw-PF-atb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
