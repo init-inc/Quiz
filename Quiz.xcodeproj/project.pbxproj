@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0C969B284D99800018388B /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C969A284D997F0018388B /* Quiz.swift */; };
+		3B0C969D284D9C4C0018388B /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C969C284D9C4C0018388B /* QuizManager.swift */; };
 		3B95E2D0283B33BC00C62BF1 /* QuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95E2CF283B33BC00C62BF1 /* QuizCard.swift */; };
 		3BA00AFF2831F8EB00A4EC2F /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA00AFE2831F8EB00A4EC2F /* QuizViewController.swift */; };
 		3BE705C8280D019A003B1C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE705C7280D019A003B1C6B /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0C969A284D997F0018388B /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		3B0C969C284D9C4C0018388B /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
 		3B95E2CF283B33BC00C62BF1 /* QuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCard.swift; sourceTree = "<group>"; };
 		3BA00AFE2831F8EB00A4EC2F /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		3BE705C4280D019A003B1C6B /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,8 @@
 				3BE705CB280D019A003B1C6B /* ViewController.swift */,
 				3BA00AFE2831F8EB00A4EC2F /* QuizViewController.swift */,
 				3B95E2CF283B33BC00C62BF1 /* QuizCard.swift */,
+				3B0C969A284D997F0018388B /* Quiz.swift */,
+				3B0C969C284D9C4C0018388B /* QuizManager.swift */,
 				3BE705CD280D019A003B1C6B /* Main.storyboard */,
 				3BE705D0280D019B003B1C6B /* Assets.xcassets */,
 				3BE705D2280D019B003B1C6B /* LaunchScreen.storyboard */,
@@ -146,6 +152,8 @@
 			files = (
 				3BE705CC280D019A003B1C6B /* ViewController.swift in Sources */,
 				3BE705C8280D019A003B1C6B /* AppDelegate.swift in Sources */,
+				3B0C969B284D99800018388B /* Quiz.swift in Sources */,
+				3B0C969D284D9C4C0018388B /* QuizManager.swift in Sources */,
 				3BE705CA280D019A003B1C6B /* SceneDelegate.swift in Sources */,
 				3B95E2D0283B33BC00C62BF1 /* QuizCard.swift in Sources */,
 				3BA00AFF2831F8EB00A4EC2F /* QuizViewController.swift in Sources */,

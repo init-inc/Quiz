@@ -11,6 +11,7 @@ import UIKit
 class QuizViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var quizCard: QuizCard!
+    let manager: QuizManager = QuizManager()
     
     var nameText: String = ""
     
@@ -20,6 +21,7 @@ class QuizViewController: UIViewController {
         self.label.text = self.nameText
         
         self.quizCard.style = .initial
+        self.loadQuiz()
         // UIPanGestureRecognizerはUI部品をタップした時の処理を記述するためのクラス
         let panGestureRecognizer = UIPanGestureRecognizer(
             target: self, action: #selector(dragQuizCard(_:))
@@ -27,12 +29,52 @@ class QuizViewController: UIViewController {
         self.quizCard.addGestureRecognizer(panGestureRecognizer)
     }
     
+    func loadQuiz() {
+        // クイズの問題文を表示
+        self.quizCard.quizLabel.text = manager.currentQuiz.text
+        // クイズの画像を表示
+        self.quizCard.quizImageView.image = UIImage(named: manager.currentQuiz.imageName)
+    }
+    
+    func answer() {
+        // 移動するCGAffineTransformオブジェクト(1)
+        var translationTransform: CGAffineTransform
+        // X軸方向の移動距離
+        let screenWidth = UIScreen.main.bounds.width
+        // Y軸方向の移動距離
+        let y = UIScreen.main.bounds.height * 0.2
+        
+        // 回答によってtranslationTransformの内容を変える(2)
+        if self.quizCard.style == .right {
+            // ◯回答のときは右へ移動
+            translationTransform = CGAffineTransform(translationX: screenWidth, y: y)
+            self.manager.answerQuiz(answer: true)
+        } else {
+            // ✗回答のときは左へ移動
+            translationTransform = CGAffineTransform(translationX: -screenWidth, y: y)
+            self.manager.answerQuiz(answer: false)
+        }
+        
+        // クイズカードをアニメーションさせて移動する(3)
+        // 0.1秒遅延させて0.5秒でカードを移動する
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: [.curveLinear], animations: {
+            // クイズカードのtransformプロパティにtranslationTransformを設定
+            self.quizCard.transform = translationTransform
+        }, completion: { [unowned self] (finished) in
+            if finished {
+                // 動作確認のため、スコアをコンソールに表示
+                print(self.manager.score)
+            }
+            
+        })
+    }
+    
     @objc func dragQuizCard(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
             self.transformQuizCard(gesture: sender)
         case .ended:
-            break
+            self.answer()
         default:
             break
         }
